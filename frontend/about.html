@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Veridex | About</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="logo">
+    Veridex
+    <span class="logo-tagline">Public Information Reliability</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="submit.html">Submit Claim</a>
+    <a href="discussion.html">Discussion</a>
+    <a href="about.html" class="active">About</a>
+    <a href="moderator.html" style="display:none;">Moderator</a>
+
+    <button id="openAuthModal" class="auth-btn">Login / Signup</button>
+    <button id="logoutBtn" class="auth-btn hidden">Logout</button>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="about-hero">
+  <div class="about-hero-content">
+    <h1>About Veridex</h1>
+    <p>Transparency through structured discussion</p>
+  </div>
+</section>
+
+<!-- ================= MAIN ================= -->
+<main class="container">
+
+  <section class="card">
+    <h2>What is Veridex?</h2>
+    <p>
+      <b>Veridex</b> is a claim verification and discussion platform that enables
+      users to critically evaluate information through community-driven analysis.
+      Each claim has its own discussion space to encourage structured debate.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Problem Statement</h2>
+    <p>
+      Misinformation spreads rapidly across digital platforms, often without
+      accountability or context. Users lack tools to evaluate claims objectively.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Our Approach</h2>
+    <ul>
+      <li>Claim-specific discussion boards</li>
+      <li>Multiple content formats</li>
+      <li>Authenticated participation</li>
+      <li>Community voting and replies</li>
+      <li>Discussion maturity indicators</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Technology Stack</h2>
+    <ul>
+      <li><b>Frontend:</b> HTML, CSS, JavaScript</li>
+      <li><b>Backend:</b> Node.js, Express</li>
+      <li><b>Database:</b> MongoDB</li>
+    </ul>
+  </section>
+
+  <!-- CONNECT -->
+  <section class="card connect-card">
+    <h2>Connect With Us</h2>
+
+    <div class="social-links">
+      <a href="https://instagram.com" target="_blank">
+        <img src="images/insta.jpg" alt="Instagram">
+      </a>
+
+      <a href="https://youtube.com" target="_blank">
+        <img src="images/yt.jpg" alt="YouTube">
+      </a>
+
+      <a href="mailto:veridex.moderator@gmail.com">
+        <img src="images/mail.png" alt="Email">
+      </a>
+
+      <a href="https://linkedin.com" target="_blank">
+        <img src="images/link.png" alt="LinkedIn">
+      </a>
+    </div>
+  </section>
+
+  <!-- FEEDBACK -->
+  <section class="card feedback-card">
+    <h2>Send Feedback to the Moderator</h2>
+
+    <form id="feedbackForm">
+      <input type="text" id="fbName" placeholder="Your name" required />
+      <input type="email" id="fbEmail" placeholder="Your email" required />
+      <textarea
+        id="fbMessage"
+        placeholder="Your suggestions or feedback..."
+        required
+      ></textarea>
+
+      <button type="submit">Send Feedback</button>
+    </form>
+
+    <p class="feedback-note">
+      Feedback is stored and forwarded to the moderator for review.
+    </p>
+  </section>
+
+</main>
+
+<!-- AUTH MODAL -->
+<div id="authModal" class="auth-modal hidden">
+  <div class="auth-box">
+    <span id="closeAuthModal" class="close-btn">&times;</span>
+
+    <h2 id="authTitle">Login</h2>
+
+    <input type="email" id="authEmail" placeholder="Email">
+    <input type="password" id="authPassword" placeholder="Password">
+
+    <button id="authSubmitBtn">Login</button>
+
+    <p class="switch-text">
+      <span id="switchAuthMode">Don't have an account? Signup</span>
+    </p>
+
+    <p id="authMessage" class="auth-message"></p>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/about.js"></script>
+</body>
+</html>

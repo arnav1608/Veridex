@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Veridex | Discussion</title>
+
+  <!-- Main styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/discussion.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+
+<!-- ================= NAVBAR (Unified) ================= -->
+<header class="navbar">
+  <div class="logo">
+    Veridex
+    <span class="logo-tagline">Public Information Reliability</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="submit.html">Submit Claim</a>
+    <a href="discussion.html" class="active">Discussion</a>
+    <a href="about.html">About</a>
+    <a href="moderator.html" style="display:none;">Moderator</a>
+
+    <button id="openAuthModal" class="auth-btn">Login / Signup</button>
+    <button id="logoutBtn" class="auth-btn hidden">Logout</button>
+  </nav>
+</header>
+
+<!-- ================= HERO STRIP ================= -->
+<section class="discussion-hero">
+  <div class="discussion-hero-content">
+    <h1>Community Discussion</h1>
+    <p>Structured responses and analytical dialogue around this claim.</p>
+  </div>
+</section>
+
+<!-- ================= MAIN ================= -->
+<main class="container">
+
+  <!-- ================= CLAIM CARD ================= -->
+  <section class="card claim-card">
+    <h2 id="claimText">Discussion</h2>
+    <p id="claimStatus">Community responses around this claim</p>
+
+    <div class="meter">
+      <span id="maturityText">Discussion maturity: Low</span>
+      <div class="meter-bar">
+        <div id="maturityFill"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AI SUMMARY ================= -->
+  <section class="card ai-summary">
+    <div class="ai-header" onclick="toggleAISummary()">
+      🤖 AI-assisted discussion summary
+      <span class="ai-note">(informational only)</span>
+    </div>
+
+    <div id="aiContent" class="hidden">
+      <ul id="aiPoints"></ul>
+    </div>
+  </section>
+
+  <!-- ================= SORT + SEARCH ================= -->
+  <section class="card">
+    <div class="sort-bar">
+      <span class="active" onclick="setSort('top')">🔥 Top</span>
+      <span onclick="setSort('new')">🆕 New</span>
+      <span onclick="setSort('discussed')">💬 Discussed</span>
+    </div>
+
+    <input
+      id="searchBox"
+      type="text"
+      placeholder="Search in discussion..."
+      oninput="render()"
+    />
+  </section>
+
+  <!-- ================= LOGIN REQUIRED BLOCK ================= -->
+  <section id="discussionLoginBlock" class="login-required hidden">
+    <h2>Login Required</h2>
+    <p>You must sign up or login to participate in discussion.</p>
+    <button onclick="document.getElementById('openAuthModal').click()">
+      Login / Signup
+    </button>
+  </section>
+
+  <!-- ================= COMPOSER ================= -->
+  <section id="discussionComposer" class="card composer hidden">
+
+    <div class="post-type-tabs">
+      <button class="active" onclick="setPostType('text', this)">📝 Text</button>
+      <button onclick="setPostType('link', this)">🔗 Link</button>
+      <button onclick="setPostType('poll', this)">📊 Poll</button>
+      <button onclick="setPostType('image', this)">🖼 Image</button>
+    </div>
+
+    <textarea id="postText" placeholder="Write something..."></textarea>
+
+    <input id="postLink" class="hidden" placeholder="Paste a link..." />
+
+    <input
+      id="postImage"
+      class="hidden"
+      type="file"
+      accept="image/*" 
+      multiple
+    />
+
+    <div id="pollBox" class="hidden">
+      <input id="pollQuestion" placeholder="Poll question" />
+      <input class="poll-option" placeholder="Option 1" />
+      <input class="poll-option" placeholder="Option 2" />
+      <button class="add-option" onclick="addPollOption()">+ Add option</button>
+    </div>
+
+    <select id="replyTag">
+      <option value="">No tag</option>
+      <option value="Source">📄 Source</option>
+      <option value="Opinion">🧠 Opinion</option>
+      <option value="Correction">❗ Correction</option>
+      <option value="Speculation">⚠️ Speculation</option>
+    </select>
+
+    <button class="post-btn" onclick="createPost()">Post</button>
+  </section>
+
+  <!-- ================= FEED ================= -->
+  <section id="feed"></section>
+
+</main>
+
+<!-- ================= AUTH MODAL ================= -->
+<div id="authModal" class="auth-modal hidden">
+  <div class="auth-box">
+    <span id="closeAuthModal" class="close-btn">&times;</span>
+
+    <h2 id="authTitle">Login</h2>
+
+    <input type="email" id="authEmail" placeholder="Email">
+    <input type="password" id="authPassword" placeholder="Password">
+
+    <button id="authSubmitBtn">Login</button>
+
+    <p class="switch-text">
+      <span id="switchAuthMode">Don't have an account? Signup</span>
+    </p>
+
+    <p id="authMessage" class="auth-message"></p>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden">
+  Link copied to clipboard
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/discussion.js"></script>
+
+<div id="imageModal" class="image-modal hidden">
+  <span onclick="closeImage()" class="close-btn">&times;</span>
+  <img id="fullImage">
+</div>
+
+</body>
+</html>

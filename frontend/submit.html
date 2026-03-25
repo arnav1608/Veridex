@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Claim | Veridex</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+
+  <!-- 🔥 ADD THIS -->
+  <style>
+    .error-text {
+      color: #dc2626;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    .loader {
+      width: 16px;
+      height: 16px;
+      border: 2px solid white;
+      border-top: 2px solid transparent;
+      border-radius: 50%;
+      display: inline-block;
+      animation: spin 0.7s linear infinite;
+      margin-left: 8px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      Veridex
+      <span class="logo-tagline">
+        Public Information Reliability
+      </span>
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="submit.html" class="active">Submit Claim</a>
+      <a href="discussion.html">Discussion</a>
+      <a href="about.html">About</a>
+      <a href="moderator.html" style="display:none;">Moderator</a>
+
+      <button id="openAuthModal" class="auth-btn">
+        Login / Signup
+      </button>
+
+      <button id="logoutBtn" class="auth-btn hidden">
+        Logout
+      </button>
+    </nav>
+  </header>
+
+  <section class="submit-dark">
+
+    <!-- HEADER -->
+    <div class="submit-header">
+      <h1>Submit a Public Claim</h1>
+      <p>
+        Submit publicly circulating information for structured,
+        rule-based reliability evaluation. Veridex does not determine
+        truth — it provides transparent reliability indicators.
+      </p>
+    </div>
+
+    <!-- LOGIN / VERIFY BLOCK -->
+    <div id="loginBlock" class="login-required">
+      <h2>Login Required</h2>
+      <p>You must sign up or login to submit a public claim.</p>
+      <button onclick="document.getElementById('openAuthModal').click()">
+        Login / Signup
+      </button>
+    </div>
+
+    <!-- STEP INDICATOR -->
+    <div class="submit-steps">
+      <div class="step-bubble active">1</div>
+      <div class="step-line"></div>
+      <div class="step-bubble">2</div>
+      <div class="step-line"></div>
+      <div class="step-bubble">3</div>
+    </div>
+
+    <!-- MAIN FORM CONTAINER -->
+    <div id="submitContainer"
+         class="submit-panel hidden">
+
+      <!-- STEP 1 -->
+      <div class="submit-step">
+        <h2>Step 1 · Describe the Claim</h2>
+        <p class="step-desc">
+          Enter the claim exactly as it is being
+          shared publicly. Avoid personal opinions.
+        </p>
+
+        <textarea
+          id="claimText"
+          placeholder="Example: Government announces national digital policy update">
+        </textarea>
+
+        <!-- 🔥 CLAIM ERROR -->
+        <p id="claimError" class="error-text"></p>
+      </div>
+
+      <!-- STEP 2 MULTIPLE SOURCES -->
+      <div class="submit-step">
+        <h2>Step 2 · Provide Supporting References</h2>
+        <p class="step-desc">
+          Add one or more references. Multiple credible
+          and diverse sources increase reliability score.
+        </p>
+
+        <div id="sourcesContainer"></div>
+
+        <button type="button"
+                id="addSourceBtn"
+                class="add-source-btn">
+          + Add Another Source
+        </button>
+
+        <!-- 🔥 SOURCE ERROR -->
+        <p id="sourceError" class="error-text"></p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="submit-step final">
+        <h2>Step 3 · Review & Submit</h2>
+        <p class="step-desc">
+          Veridex evaluates claims using deterministic
+          weighted scoring based on source credibility,
+          diversity, and freshness.
+        </p>
+
+        <!-- 🔥 UPDATED BUTTON -->
+        <button id="submitBtn">
+          <span id="btnText">Submit Claim</span>
+          <span id="btnLoader" class="loader hidden"></span>
+        </button>
+
+        <p class="privacy-note">
+          Claims are evaluated automatically.
+          Veridex does not determine factual truth.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    <p>
+      © 2026 Veridex · Public Information Reliability Platform
+    </p>
+  </footer>
+
+  <!-- AUTH MODAL -->
+  <div id="authModal" class="auth-modal hidden">
+    <div class="auth-box">
+
+      <span id="closeAuthModal"
+            class="close-btn">&times;</span>
+
+      <h2 id="authTitle">Login</h2>
+
+      <input type="email"
+             id="authEmail"
+             placeholder="Email">
+
+      <input type="password"
+             id="authPassword"
+             placeholder="Password">
+
+      <button id="authSubmitBtn">
+        Login
+      </button>
+
+      <p class="switch-text">
+        <span id="switchAuthMode">
+          Don't have an account? Signup
+        </span>
+      </p>
+
+      <p id="authMessage"
+         class="auth-message"></p>
+
+    </div>
+  </div>
+
+  <script src="./js/app.js"></script>
+  <script src="./js/submit.js"></script>
+
+</body>
+</html>

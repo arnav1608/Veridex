@@ -1,0 +1,370 @@
+/* =====================================
+   DISCUSSION PREMIUM CREAM THEME
+===================================== */
+
+.discussion-hero {
+  background: linear-gradient(
+    135deg,
+    #fdfaf6 0%,
+    #f8f4ec 50%,
+    #fdfaf6 100%
+  );
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.discussion-hero-content h1 {
+  font-size: 38px;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.discussion-hero-content p {
+  color: #6b7280;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  border: 1px solid #f0eae2;
+}
+
+/* ================= BASE ================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #020617, #000);
+  color: #e5e7eb;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ================= HEADER ================= */
+.discussion-header {
+  height: 320px;
+  position: relative;
+  background:
+    linear-gradient(rgba(2,6,23,.9), rgba(2,6,23,.98)),
+    url("../images/header-bg.png") center / cover no-repeat;
+}
+
+.top-nav {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  z-index: 10;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: #93c5fd;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.top-nav a:hover,
+.top-nav a.active {
+  color: #38bdf8;
+}
+
+.header-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.header-content {
+  text-align: center;
+}
+
+/* ================= LAYOUT ================= */
+.container {
+  max-width: 900px;
+  margin: 40px auto 60px;   /* 🔥 remove negative margin */
+  padding: 0 14px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: linear-gradient(160deg, rgba(2,6,23,.96), rgba(0,0,0,.96));
+  border: 1px solid rgba(148,163,184,.18);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 22px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.45);
+}
+
+/* ================= SORT + SEARCH ================= */
+.sort-bar {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 14px;
+}
+
+.sort-bar span {
+  cursor: pointer;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.sort-bar span.active {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+#searchBox {
+  width: 100%;
+}
+
+/* ================= INPUTS ================= */
+textarea,
+input,
+select {
+  width: 100%;
+  background: rgba(2,6,23,.9);
+  border: 1px solid #334155;
+  color: #e5e7eb;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: #64748b;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56,189,248,.15);
+}
+
+/* ================= COMPOSER ================= */
+.composer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.post-type-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.post-type-tabs button {
+  background: rgba(2,6,23,.85);
+  border: 1px solid #334155;
+  color: #94a3b8;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.post-type-tabs button.active {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: #e0f2fe;
+  border-color: transparent;
+}
+
+/* ================= POLL CREATION ================= */
+#pollBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.poll-option {
+  width: 100%;
+}
+
+.add-option {
+  align-self: flex-start;
+  background: none;
+  border: 1px dashed #334155;
+  color: #94a3b8;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.add-option:hover {
+  color: #38bdf8;
+  border-color: #38bdf8;
+}
+
+/* ================= POST BUTTON ================= */
+.post-btn {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 26px;
+  color: #e0f2fe;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.post-btn:hover {
+  box-shadow: 0 10px 22px rgba(14,165,233,.35);
+}
+
+/* ================= POSTS ================= */
+.actions {
+  display: flex;
+  gap: 18px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.actions span {
+  cursor: pointer;
+  color: #94a3b8;
+}
+
+.actions span:hover {
+  color: #38bdf8;
+}
+
+/* ================= POLL DISPLAY ================= */
+.poll-bar {
+  background: rgba(0,0,0,.55);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.poll-fill {
+  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+  padding: 8px 14px;
+  font-size: 14px;
+  transition: width .35s ease;
+}
+
+/* ================= IMAGE POST ================= */
+.post-image {
+  max-width: 100%;
+  border-radius: 16px;
+  margin-top: 12px;
+}
+
+/* ================= REPLIES ================= */
+.replies {
+  margin-left: 28px;
+  margin-top: 16px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(56,189,248,.25);
+}
+
+.reply-toggle {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #38bdf8;
+  cursor: pointer;
+}
+
+.reply-toggle:hover {
+  text-decoration: underline;
+}
+
+/* ================= TAGS ================= */
+.tag {
+  display: inline-block;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tag.Source { background: #0ea5e9; }
+.tag.Opinion { background: #6366f1; }
+.tag.Correction { background: #f97316; }
+.tag.Speculation { background: #eab308; }
+
+/* ================= DISCUSSION METER ================= */
+.meter-bar {
+  height: 6px;
+  background: rgba(0,0,0,.6);
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+#maturityFill {
+  height: 100%;
+  width: 20%;
+  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+  border-radius: 6px;
+}
+
+.post-image-thumb {
+  max-width: 300px;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.image-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.image-modal.hidden {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
